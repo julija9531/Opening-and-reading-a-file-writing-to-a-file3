@@ -2,12 +2,12 @@ def pars_files(files_list):
     dict_files1 = {}
     dict_files2 = {}
     for file in files_list:
-        fi = open(file, 'r', encoding='utf-8')
-        Si = []
-        for line in fi:
-            Si += [line]
-        dict_files1[fi.name] = len(Si)
-        dict_files2[fi.name] = Si
+        with open(file, 'r', encoding='utf-8') as fi:
+            Si = []
+            for line in fi:
+                Si += [line]
+            dict_files1[fi.name] = len(Si)
+            dict_files2[fi.name] = Si
     return dict_files1, dict_files2
 
 def cum_file(f_list, cum_file_name):
